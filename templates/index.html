@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhishGuard Backend Demo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <h1>PhishGuard URL Detection</h1>
+        <p class="subtitle">This simple page proves the Flask backend is working and ready for frontend integration.</p>
+
+        <form id="urlForm" class="checker-form">
+            <input id="urlInput" type="text" placeholder="Enter a URL such as https://example.com" />
+            <button type="submit">Check URL</button>
+        </form>
+
+        <section id="resultBox" class="result-box hidden">
+            <h2 id="resultTitle"></h2>
+            <p id="resultConfidence"></p>
+            <p id="resultMessage"></p>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
