@@ -55,6 +55,7 @@ def frontend(path: str):
 
 
 @app.route("/predict", methods=["POST"])
+@app.route("/api/predict", methods=["POST"])
 def predict():
     """Receive a URL from the frontend and return a JSON prediction."""
     try:

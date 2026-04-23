@@ -16,8 +16,8 @@ import {
   User,
   Zap,
 } from 'lucide-react';
-import rasulovAbdulazizPhoto from './rasulov abdulaziz.jpg';
-import bekhruzPhoto from './bekhruz .jpg';
+import rasulovAbdulazizPhoto from './rasulov-abdulaziz.jpg';
+import bekhruzPhoto from './bekhruz.jpg';
 
 type ResultState = 'idle' | 'analyzing' | 'safe' | 'phishing';
 
@@ -379,7 +379,7 @@ export default function App() {
     scrollToResultOnMobile();
 
     try {
-      const response = await fetch('/predict', {
+      const response = await fetch('/api/predict', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
