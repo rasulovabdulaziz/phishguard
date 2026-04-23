@@ -16,8 +16,6 @@ import {
   User,
   Zap,
 } from 'lucide-react';
-import rasulovAbdulazizPhoto from './rasulov-abdulaziz.jpg';
-import bekhruzPhoto from './bekhruz.jpg';
 
 type ResultState = 'idle' | 'analyzing' | 'safe' | 'phishing';
 
@@ -85,14 +83,14 @@ const authorItems = [
     name: 'Rasulov Abdulaziz',
     id: 'U2110237',
     role: 'Backend, ML, and system integration',
-    photo: rasulovAbdulazizPhoto,
+    photo: '/authors/rasulov-abdulaziz.jpg',
     bio: 'Focused on the Flask backend, phishing detection logic, model integration, and final system behavior.',
   },
   {
     name: 'Umurzaqov Bekhruz',
     id: 'U2110278',
     role: 'Frontend support and project collaboration',
-    photo: bekhruzPhoto,
+    photo: '/authors/bekhruz.jpg',
     bio: 'Worked on project collaboration, interface support, testing flow, and presentation-ready structure.',
   },
 ] as const;

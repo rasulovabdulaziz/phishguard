@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from flask import Flask, jsonify, render_template, request, send_from_directory
+from flask import Flask, jsonify, make_response, render_template, request, send_from_directory
 
 from feature_extraction import is_valid_url, normalize_url
 from predict import predict_url
@@ -41,7 +41,14 @@ def frontend(path: str):
         requested_file = DIST_DIR / path
         if path and requested_file.exists() and requested_file.is_file():
             return send_from_directory(DIST_DIR, path)
-        return send_from_directory(DIST_DIR, "index.html")
+        if path.startswith("assets/"):
+            return ("Asset not found", 404)
+
+        response = make_response(send_from_directory(DIST_DIR, "index.html"))
+        response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+        response.headers["Pragma"] = "no-cache"
+        response.headers["Expires"] = "0"
+        return response
 
     # Fallback for cases where the React app has not been built yet.
     if path in {"", "index.html"}:
